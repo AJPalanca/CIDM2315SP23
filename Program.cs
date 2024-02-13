@@ -1,28 +1,47 @@
-﻿namespace Homework4Q1;
+﻿namespace Homework4Q2;
 
 class Program
 {
-    static void Main(string[] args)
+    static void PrintTriangle(int N, string shape)
     {
-        int a = 3;
-        int b = 5;
-
-        Console.WriteLine($"a = {a}; b={b}");
-
-        int largestNumber = FindLargestNumber(a, b);
-
-        Console.WriteLine($"The largest number is:{largestNumber}");
+        Console.WriteLine($"N is {N}, Shape is {shape}");
+        if (shape.ToLower() == "left")
+        {
+        for (int row = 1; row <= N; row++)
+        {
+        for (int col = 1; col <= row; col++)
+        {
+        Console.Write("*");
+        }
+        Console.WriteLine();
+        }
+        }
+        else if (shape.ToLower() == "right")
+        {
+        for (int row = 1; row <= N; row++)
+        {
+        for (int space = 1; space <= N - row; space++)
+        {
+        Console.Write(" ");
+        }
+        for (int col = 1; col <= row; col++)
+        {
+        Console.Write("*");
+        }
+        Console.WriteLine();
+        }
+        }
+       
     }
 
-    static int FindLargestNumber(int num1,int num2)
+    static void Main(string[] args)
     {
-        if (num1 > num2)
-        {
-        return num1;
-        }
-        else
-        {
-        return num2;
-        }
+        Console.Write("Enter the number: ");
+        int N = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Enter the shape: ");
+        string shape = Console.ReadLine();
+
+        PrintTriangle(N, shape);
     }
 }
